@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -38,7 +39,7 @@ public class LoginTests {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
-	}
+		}
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
@@ -47,9 +48,12 @@ public class LoginTests {
 	}
 	@Test
 	public void validLoginTest() {
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
+				
+		loginPOM.Clickloginlink();
+		loginPOM.login();
+		loginPOM.sendUserName("amrutasagajkar11@gmail.com");
+		loginPOM.sendPassword("Test12345");
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		//screenShot.captureScreenShot("First");
 	}
 }
